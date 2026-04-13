@@ -20,6 +20,89 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
         />
+        <style>
+            .paper-item {
+                margin-bottom: 0.6rem;
+                border: 1px solid var(--border-color, #ddd);
+                border-radius: 6px;
+                overflow: hidden;
+            }
+            .paper-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                padding: 0.75rem 1rem;
+                cursor: pointer;
+                gap: 0.75rem;
+                transition: background 0.2s;
+            }
+            .paper-header:hover {
+                background: var(--hover-bg, rgba(128, 128, 128, 0.08));
+            }
+            .paper-header-text {
+                flex: 1;
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+            .paper-toggle-icon {
+                font-size: 0.75rem;
+                margin-top: 0.3rem;
+                flex-shrink: 0;
+                transition: transform 0.25s;
+            }
+            .paper-item.open .paper-toggle-icon {
+                transform: rotate(180deg);
+            }
+            .paper-body {
+                display: none;
+                border-top: 1px solid var(--border-color, #ddd);
+                padding: 1rem;
+            }
+            .paper-item.open .paper-body {
+                display: block;
+            }
+            .paper-intro {
+                display: flex;
+                gap: 1rem;
+                margin-bottom: 0.9rem;
+            }
+            .paper-image {
+                flex: 0 0 200px;
+                text-align: center;
+            }
+            .paper-image img {
+                width: 100%;
+                max-width: 200px;
+                border-radius: 4px;
+                object-fit: cover;
+            }
+            .paper-image .img-caption {
+                font-size: 0.78rem;
+                color: var(--muted-color, #888);
+                margin-top: 0.4rem;
+            }
+            .paper-desc {
+                flex: 1;
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+            .paper-links {
+                border-top: 1px solid var(--border-color, #ddd);
+                padding-top: 0.7rem;
+                font-size: 0.88rem;
+            }
+            .paper-links a {
+                margin-right: 1rem;
+            }
+            @media (max-width: 600px) {
+                .paper-intro {
+                    flex-direction: column;
+                }
+                .paper-image {
+                    flex: unset;
+                }
+            }
+        </style>
     </head>
     <body>
         <div class="theme-toggle-container">
@@ -32,7 +115,6 @@
             <aside class="sidebar">
                 <div class="profile">
                     <img src="avatar.jpg" alt="Haohao Li" class="avatar" />
-
                     <h2 class="name">
                         Haohao Li <br /><span
                             style="font-size: 0.8em; font-weight: normal"
@@ -47,7 +129,6 @@
                         Harbin Institute of Technology<br />
                         哈尔滨工业大学
                     </p>
-
                     <div class="contact-links">
                         <a href="mailto:haohao9568@outlook.com"
                             ><i class="fas fa-envelope"></i> Email</a
@@ -76,10 +157,10 @@
                         >.
                     </p>
                     <p>
-                        My research research interests primarily focus on two
-                        areas: (1) Visual persuasion strategies and mechanisms
-                        in digital platforms; (2) Online entrepreneurial
-                        fundraising (crowdfunding)
+                        My research interests primarily focus on two areas: (1)
+                        Visual persuasion strategies and mechanisms in digital
+                        platforms; (2) Online entrepreneurial fundraising
+                        (crowdfunding)
                     </p>
                     <p>
                         Methodologically, I employ a mixed-methods approach
@@ -99,21 +180,18 @@
                     <h2>Education</h2>
                     <ul>
                         <li>
-                            <strong>Ph.D. in Information Systems</strong>
-                            <br />
+                            <strong>Ph.D. in Information Systems</strong><br />
                             Harbin Institute of Technology, 2022.03 - Present
                         </li>
                         <li>
-                            <strong>M.S. in Information Systems</strong>
-                            <br />
+                            <strong>M.S. in Information Systems</strong><br />
                             Jilin University, 2018.09 - 2020.06
                         </li>
                         <li>
                             <strong
                                 >B.S. in Information Resources
                                 Management</strong
-                            >
-                            <br />
+                            ><br />
                             Jilin University, 2014.09 - 2018.06
                         </li>
                     </ul>
@@ -125,8 +203,7 @@
                     <h2>Employment</h2>
                     <ul>
                         <li>
-                            <strong>软件开发工程师</strong>
-                            <br />
+                            <strong>软件开发工程师</strong><br />
                             珠海冠宇电池股份有限公司, 2020.07 - 2021.08
                         </li>
                     </ul>
@@ -138,113 +215,441 @@
                     <h2>Publications</h2>
 
                     <h3>Journal Articles</h3>
-                    <ul>
-                        <li>
-                            <strong>Haohao Li</strong>, Weitao He, Luning Liu,
-                            Yuqiang Feng. 2026. Does emotional consistency
-                            matter? A study of cover image and narrative text in
-                            loan-based crowdfunding.
-                            <span class="highlight-content"
-                                >Decision Support Systems(ABS3, JCRQ1)</span
-                            >.
-                        </li>
-                        <li>
-                            孟婧, 邱长波, <strong>李浩浩</strong>, 宋思雨. 2026.
-                            吉林省专利申请人合作网络特征的演化研究.
-                            <span class="highlight-content" lang="zh"
-                                >情报科学(CSSCI)</span
-                            >.
-                        </li>
-                    </ul>
+
+                    <!-- ============================================================
+                         论文1: DSS 2026
+                         图片: papers/dss2026.jpg
+                         文字介绍: 修改下方 .paper-desc 里的 <p> 内容
+                         链接: 修改 .paper-links 里 href="#" 换成真实链接
+                    ============================================================ -->
+                    <div class="paper-item">
+                        <div class="paper-header" onclick="togglePaper(this)">
+                            <span class="paper-header-text">
+                                <strong>Haohao Li</strong>, Weitao He, Luning
+                                Liu, Yuqiang Feng. 2026. Does emotional
+                                consistency matter? A study of cover image and
+                                narrative text in loan-based crowdfunding.
+                                <span class="highlight-content"
+                                    >Decision Support Systems (ABS3,
+                                    JCRQ1)</span
+                                >.
+                            </span>
+                            <span class="paper-toggle-icon"
+                                ><i class="fas fa-chevron-down"></i
+                            ></span>
+                        </div>
+                        <div class="paper-body">
+                            <div class="paper-intro">
+                                <div class="paper-image">
+                                    <img
+                                        src="papers/dss2026.jpg"
+                                        alt="DSS 2026 paper figure"
+                                    />
+                                    <p class="img-caption">
+                                        Figure: Conceptual framework
+                                    </p>
+                                    <!-- 图片说明改这里 -->
+                                </div>
+                                <div class="paper-desc">
+                                    <!-- 文字介绍改这里 -->
+                                    <p>
+                                        This study investigates how the
+                                        emotional consistency between cover
+                                        images and narrative text in loan-based
+                                        crowdfunding affects funding
+                                        performance, finding an inverted
+                                        U-shaped relationship where moderate
+                                        consistency maximizes outcomes — an
+                                        effect strengthened for female
+                                        fundraisers and weakened under higher
+                                        project risk — and contributes a novel,
+                                        computationally quantified construct of
+                                        image-text emotional consistency that
+                                        challenges prior linear assumptions in
+                                        multimodal communication research.
+                                    </p>
+                                    <p>
+                                        本研究探讨众筹项目封面图片与叙述文本之间的情感一致性对筹资绩效的影响，发现二者呈倒U型非线性关系（适度一致性效果最优），且该效应在女性筹款人中更显著、在高风险项目中减弱，并首次提出并量化了"图文情感一致性"这一理论构念，挑战了多模态传播研究中的传统线性假设。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="paper-links">
+                                <a
+                                    href="https://www.sciencedirect.com/science/article/pii/S0167923625001976"
+                                    target="_blank"
+                                    ><i class="fas fa-file-pdf"></i> PDF</a
+                                >
+                                <a
+                                    href="https://www.sciencedirect.com/science/article/pii/S0167923625001976/pdfft?md5=3a067dc4e9be39f2f250331bf51eee4b&pid=1-s2.0-S0167923625001976-main.pdf"
+                                    target="_blank"
+                                    ><i class="fas fa-external-link-alt"></i>
+                                    DOI</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============================================================
+                         论文2: 情报科学 2026
+                         图片: papers/qbkx2026.jpg
+                         文字介绍: 修改下方 .paper-desc 里的 <p> 内容
+                    ============================================================ -->
+                    <div class="paper-item">
+                        <div class="paper-header" onclick="togglePaper(this)">
+                            <span class="paper-header-text">
+                                孟婧, 邱长波, <strong>李浩浩</strong>, 宋思雨.
+                                2026. 吉林省专利申请人合作网络特征的演化研究.
+                                <span class="highlight-content" lang="zh"
+                                    >情报科学 (CSSCI)</span
+                                >.
+                            </span>
+                            <span class="paper-toggle-icon"
+                                ><i class="fas fa-chevron-down"></i
+                            ></span>
+                        </div>
+                        <div class="paper-body">
+                            <div class="paper-intro">
+                                <div class="paper-image">
+                                    <img
+                                        src="papers/qbkx2026.jpg"
+                                        alt="情报科学论文图示"
+                                    />
+                                    <p class="img-caption">
+                                        图：合作网络演化图
+                                    </p>
+                                    <!-- 图片说明改这里 -->
+                                </div>
+                                <div class="paper-desc">
+                                    <!-- 文字介绍改这里 -->
+                                    <p>在这里写这篇论文的介绍文字。</p>
+                                </div>
+                            </div>
+                            <div class="paper-links">
+                                <a href="#" target="_blank"
+                                    ><i class="fas fa-file-pdf"></i> PDF</a
+                                >
+                                <a href="#" target="_blank"
+                                    ><i class="fas fa-external-link-alt"></i>
+                                    DOI</a
+                                >
+                            </div>
+                        </div>
+                    </div>
 
                     <h3>Conference Papers</h3>
-                    <ul>
-                        <li>
-                            <strong>Haohao Li</strong>, Weitao He, Luning Liu.
-                            Information Strategy in Platform Competition.
-                            <span class="highlight-content"
-                                >Hawaii International Conference on System
-                                Sciences (HICSS)</span
-                            >. 2026. Hawaii, United States.
-                            <span class="highlight-content"
-                                >Best Paper Award (Nominee)</span
-                            >.
-                            <br />
-                            Present in
-                            <span class="highlight-content"
-                                >Wuhan International Conference on Electronic
-                                Business (WHICEB)</span
-                            >. 2026. Ningbo, China.
-                            <br />
-                            Present in
-                            <span class="highlight-content"
-                                >Pacific Asia Conference on Information Systems
-                                (PACIS)</span
-                            >. 2025. Kuala Lumpur, Malaysia.
-                        </li>
-                        <li>
-                            Weitao He, <strong>Haohao Li</strong>, Luning Liu.
-                            Does incongruence matter? Gender and age in
-                            officer-civilian interactions.
-                            <span class="highlight-content"
-                                >American Society for Public Administration
-                                Annual Conference (ASPA)</span
-                            >. 2026. Washington, D.C., United States.
-                            <span class="highlight-content"
-                                >Best Student Paper Award (First Nominee)</span
-                            >.
-                        </li>
-                        <li>
-                            何潍涛, <strong>李浩浩</strong>, 刘鲁宁.
-                            Anti-Corruption Efforts and Citizen-Initiated
-                            Accountability: Evidence from Administrative
-                            Litigation.
-                            <span class="highlight-content" lang="zh"
-                                >第十三届华人公共管理学者研讨会</span
-                            >. 2025. 广西南宁, 中国.
-                        </li>
-                        <li>
-                            <strong>李浩浩</strong>, 何潍涛, 刘鲁宁.
-                            超越叙事：视觉独特性对在线亲社会众筹的双重影响.
-                            <span class="highlight-content" lang="zh"
-                                >管理科学与工程国际会议</span
-                            >. 2025. 黑龙江哈尔滨, 中国.
-                            <span class="highlight-content" lang="zh"
-                                >最佳论文（二等奖）</span
-                            >.
-                        </li>
-                        <li>
-                            <strong>李浩浩</strong>, 何潍涛, 刘鲁宁. The Impact
-                            of Geopolitical Conflicts on Online Prosocial
-                            Lending.
-                            <span class="highlight-content" lang="zh"
-                                >复旦科创管理学术论坛</span
-                            >. 2025. 上海, 中国.
-                        </li>
-                        <li>
-                            <strong>Haohao Li</strong>, Luning Liu. Words meet
-                            photos: How Image-text Thematic Consistency Effect
-                            Crowdfunding Success.
-                            <span class="highlight-content"
-                                >International Conference on Information Systems
-                                (ICIS)</span
-                            >. 2024. Bangkok, Thailand.
-                        </li>
-                        <li>
-                            <strong>Haohao Li</strong>, Weitao He, Luning Liu.
-                            Does Emotional Consistency Matter? A Study of
-                            Profile Image and Narrative Text in the Loan-based
-                            Crowdfunding.
-                            <span class="highlight-content"
-                                >Academic Annual Conference of China Association
-                                for Information Systems (CNAIS)</span
-                            >. 2024. Tianjin, China. <br />Present in
-                            <span class="highlight-content"
-                                >Academic Annual Conference of China Information
-                                Economic Society (CNIES)</span
-                            >. 2024. Beijing, China.
-                        </li>
-                    </ul>
+
+                    <!-- ============================================================
+                         论文3: HICSS 2026
+                         图片: papers/hicss2026.jpg
+                    ============================================================ -->
+                    <div class="paper-item">
+                        <div class="paper-header" onclick="togglePaper(this)">
+                            <span class="paper-header-text">
+                                <strong>Haohao Li</strong>, Weitao He, Luning
+                                Liu. Information Strategy in Platform
+                                Competition.
+                                <span class="highlight-content">HICSS 2026</span
+                                >. Hawaii, United States.
+                                <span class="highlight-content"
+                                    >Best Paper Award (Nominee)</span
+                                >. Also presented at
+                                <span class="highlight-content"
+                                    >WHICEB 2026</span
+                                >
+                                &amp;
+                                <span class="highlight-content">PACIS 2025</span
+                                >.
+                            </span>
+                            <span class="paper-toggle-icon"
+                                ><i class="fas fa-chevron-down"></i
+                            ></span>
+                        </div>
+                        <div class="paper-body">
+                            <div class="paper-intro">
+                                <div class="paper-image">
+                                    <img
+                                        src="papers/hicss2026.jpg"
+                                        alt="HICSS 2026 paper figure"
+                                    />
+                                    <p class="img-caption">
+                                        Figure: Platform competition model
+                                    </p>
+                                </div>
+                                <div class="paper-desc">
+                                    <p>在这里写这篇论文的介绍文字。</p>
+                                </div>
+                            </div>
+                            <div class="paper-links">
+                                <a href="#" target="_blank"
+                                    ><i class="fas fa-file-pdf"></i> PDF</a
+                                >
+                                <a href="#" target="_blank"
+                                    ><i class="fas fa-external-link-alt"></i>
+                                    DOI</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============================================================
+                         论文4: ASPA 2026
+                         图片: papers/aspa2026.jpg
+                    ============================================================ -->
+                    <div class="paper-item">
+                        <div class="paper-header" onclick="togglePaper(this)">
+                            <span class="paper-header-text">
+                                Weitao He, <strong>Haohao Li</strong>, Luning
+                                Liu. Does incongruence matter? Gender and age in
+                                officer-civilian interactions.
+                                <span class="highlight-content">ASPA 2026</span
+                                >. Washington, D.C., United States.
+                                <span class="highlight-content"
+                                    >Best Student Paper Award (First
+                                    Nominee)</span
+                                >.
+                            </span>
+                            <span class="paper-toggle-icon"
+                                ><i class="fas fa-chevron-down"></i
+                            ></span>
+                        </div>
+                        <div class="paper-body">
+                            <div class="paper-intro">
+                                <div class="paper-image">
+                                    <img
+                                        src="papers/aspa2026.jpg"
+                                        alt="ASPA 2026 paper figure"
+                                    />
+                                    <p class="img-caption">
+                                        Figure: Interaction incongruence
+                                        framework
+                                    </p>
+                                </div>
+                                <div class="paper-desc">
+                                    <p>在这里写这篇论文的介绍文字。</p>
+                                </div>
+                            </div>
+                            <div class="paper-links">
+                                <a href="#" target="_blank"
+                                    ><i class="fas fa-file-pdf"></i> PDF</a
+                                >
+                                <a href="#" target="_blank"
+                                    ><i class="fas fa-external-link-alt"></i>
+                                    DOI</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============================================================
+                         论文5: 华人公共管理 2025
+                         图片: papers/cpas2025.jpg
+                    ============================================================ -->
+                    <div class="paper-item">
+                        <div class="paper-header" onclick="togglePaper(this)">
+                            <span class="paper-header-text">
+                                何潍涛, <strong>李浩浩</strong>, 刘鲁宁.
+                                Anti-Corruption Efforts and Citizen-Initiated
+                                Accountability: Evidence from Administrative
+                                Litigation.
+                                <span class="highlight-content" lang="zh"
+                                    >第十三届华人公共管理学者研讨会</span
+                                >. 2025. 广西南宁, 中国.
+                            </span>
+                            <span class="paper-toggle-icon"
+                                ><i class="fas fa-chevron-down"></i
+                            ></span>
+                        </div>
+                        <div class="paper-body">
+                            <div class="paper-intro">
+                                <div class="paper-image">
+                                    <img
+                                        src="papers/cpas2025.jpg"
+                                        alt="华人公共管理研讨会论文图示"
+                                    />
+                                    <p class="img-caption">图：研究框架</p>
+                                </div>
+                                <div class="paper-desc">
+                                    <p>在这里写这篇论文的介绍文字。</p>
+                                </div>
+                            </div>
+                            <div class="paper-links">
+                                <a href="#" target="_blank"
+                                    ><i class="fas fa-file-pdf"></i> PDF</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============================================================
+                         论文6: ICMSE 2025
+                         图片: papers/icmse2025.jpg
+                    ============================================================ -->
+                    <div class="paper-item">
+                        <div class="paper-header" onclick="togglePaper(this)">
+                            <span class="paper-header-text">
+                                <strong>李浩浩</strong>, 何潍涛, 刘鲁宁.
+                                超越叙事：视觉独特性对在线亲社会众筹的双重影响.
+                                <span class="highlight-content" lang="zh"
+                                    >管理科学与工程国际会议</span
+                                >. 2025. 黑龙江哈尔滨, 中国.
+                                <span class="highlight-content" lang="zh"
+                                    >最佳论文（二等奖）</span
+                                >.
+                            </span>
+                            <span class="paper-toggle-icon"
+                                ><i class="fas fa-chevron-down"></i
+                            ></span>
+                        </div>
+                        <div class="paper-body">
+                            <div class="paper-intro">
+                                <div class="paper-image">
+                                    <img
+                                        src="papers/icmse2025.jpg"
+                                        alt="ICMSE 2025 论文图示"
+                                    />
+                                    <p class="img-caption">
+                                        图：视觉独特性双重影响模型
+                                    </p>
+                                </div>
+                                <div class="paper-desc">
+                                    <p>在这里写这篇论文的介绍文字。</p>
+                                </div>
+                            </div>
+                            <div class="paper-links">
+                                <a href="#" target="_blank"
+                                    ><i class="fas fa-file-pdf"></i> PDF</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============================================================
+                         论文7: 复旦科创 2025
+                         图片: papers/fudan2025.jpg
+                    ============================================================ -->
+                    <div class="paper-item">
+                        <div class="paper-header" onclick="togglePaper(this)">
+                            <span class="paper-header-text">
+                                <strong>李浩浩</strong>, 何潍涛, 刘鲁宁. The
+                                Impact of Geopolitical Conflicts on Online
+                                Prosocial Lending.
+                                <span class="highlight-content" lang="zh"
+                                    >复旦科创管理学术论坛</span
+                                >. 2025. 上海, 中国.
+                            </span>
+                            <span class="paper-toggle-icon"
+                                ><i class="fas fa-chevron-down"></i
+                            ></span>
+                        </div>
+                        <div class="paper-body">
+                            <div class="paper-intro">
+                                <div class="paper-image">
+                                    <img
+                                        src="papers/fudan2025.jpg"
+                                        alt="复旦论坛论文图示"
+                                    />
+                                    <p class="img-caption">
+                                        Figure: Geopolitical conflict impact
+                                    </p>
+                                </div>
+                                <div class="paper-desc">
+                                    <p>在这里写这篇论文的介绍文字。</p>
+                                </div>
+                            </div>
+                            <div class="paper-links">
+                                <a href="#" target="_blank"
+                                    ><i class="fas fa-file-pdf"></i> PDF</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============================================================
+                         论文8: ICIS 2024
+                         图片: papers/icis2024.jpg
+                    ============================================================ -->
+                    <div class="paper-item">
+                        <div class="paper-header" onclick="togglePaper(this)">
+                            <span class="paper-header-text">
+                                <strong>Haohao Li</strong>, Luning Liu. Words
+                                meet photos: How Image-text Thematic Consistency
+                                Effect Crowdfunding Success.
+                                <span class="highlight-content">ICIS 2024</span
+                                >. Bangkok, Thailand.
+                            </span>
+                            <span class="paper-toggle-icon"
+                                ><i class="fas fa-chevron-down"></i
+                            ></span>
+                        </div>
+                        <div class="paper-body">
+                            <div class="paper-intro">
+                                <div class="paper-image">
+                                    <img
+                                        src="papers/icis2024.jpg"
+                                        alt="ICIS 2024 paper figure"
+                                    />
+                                    <p class="img-caption">
+                                        Figure: Image-text consistency model
+                                    </p>
+                                </div>
+                                <div class="paper-desc">
+                                    <p>在这里写这篇论文的介绍文字。</p>
+                                </div>
+                            </div>
+                            <div class="paper-links">
+                                <a href="#" target="_blank"
+                                    ><i class="fas fa-file-pdf"></i> PDF</a
+                                >
+                                <a href="#" target="_blank"
+                                    ><i class="fas fa-external-link-alt"></i>
+                                    DOI</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ============================================================
+                         论文9: CNAIS 2024
+                         图片: papers/cnais2024.jpg
+                    ============================================================ -->
+                    <div class="paper-item">
+                        <div class="paper-header" onclick="togglePaper(this)">
+                            <span class="paper-header-text">
+                                <strong>Haohao Li</strong>, Weitao He, Luning
+                                Liu. Does Emotional Consistency Matter? A Study
+                                of Profile Image and Narrative Text in the
+                                Loan-based Crowdfunding.
+                                <span class="highlight-content">CNAIS 2024</span
+                                >. Tianjin, China. Also presented at
+                                <span class="highlight-content">CNIES 2024</span
+                                >. Beijing, China.
+                            </span>
+                            <span class="paper-toggle-icon"
+                                ><i class="fas fa-chevron-down"></i
+                            ></span>
+                        </div>
+                        <div class="paper-body">
+                            <div class="paper-intro">
+                                <div class="paper-image">
+                                    <img
+                                        src="papers/cnais2024.jpg"
+                                        alt="CNAIS 2024 paper figure"
+                                    />
+                                    <p class="img-caption">
+                                        Figure: Emotional consistency framework
+                                    </p>
+                                </div>
+                                <div class="paper-desc">
+                                    <p>在这里写这篇论文的介绍文字。</p>
+                                </div>
+                            </div>
+                            <div class="paper-links">
+                                <a href="#" target="_blank"
+                                    ><i class="fas fa-file-pdf"></i> PDF</a
+                                >
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 <hr />
@@ -304,5 +709,11 @@
         </div>
 
         <script src="script.js"></script>
+        <script>
+            function togglePaper(header) {
+                const item = header.closest(".paper-item");
+                item.classList.toggle("open");
+            }
+        </script>
     </body>
 </html>
